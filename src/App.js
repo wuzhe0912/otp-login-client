@@ -3,7 +3,12 @@ import './App.css';
 
 function App() {
   const [result, setResult] = useState('');
-  function fetchInfo() {}
+  async function fetchInfo() {
+    const url = `${process.env.REACT_APP_API_URL}/test`;
+    const response = await fetch(url);
+    const data = await response.json();
+    setResult(data);
+  }
 
   return (
     <main className='app'>
